@@ -4,9 +4,17 @@ import logging
 class ViewCalculator:
 
     def __init__(self, calculable_factory):
+        """
+        Метод инициации класса
+        :param calculable_factory: интерфейс вызова методов
+        """
         self.calculableFactory = calculable_factory
 
     def run(self):
+        """
+        Метод запуска консольного интерфейса программы
+        :return:
+        """
         digits = float(input("Введите первый аргумент: "))
         view_calculator = self.calculableFactory.create(digits)
         while True:
@@ -37,6 +45,10 @@ class ViewCalculator:
                     break
 
 
+
+"""
+Логгирование
+"""
 logging.basicConfig(level=logging.INFO, filename="py_log.log",filemode="w",
                     format="%(asctime)s %(levelname)s %(message)s")
 logging.debug("A DEBUG Message")
